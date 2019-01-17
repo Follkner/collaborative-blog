@@ -1,0 +1,15 @@
+.header{
+	width: 100%;
+	border: 2px solid black;
+	border-radius: 10px;
+}
+
+ul{
+	display: flex;
+	justify-content: space-around;
+}
+
+li{
+	list-style-type: none;
+	cursor: pointer;
+}
