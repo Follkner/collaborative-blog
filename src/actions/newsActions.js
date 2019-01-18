@@ -19,6 +19,8 @@ export const uploadNews = () => {
 
 		let req = new Request(url);
 
+
+		setTimeout(function(){
 		fetch(req)
     		.then(function(response) {
         		return response.json(); 		
@@ -32,6 +34,8 @@ export const uploadNews = () => {
     		.catch(dispatch({
     			type: NEWS_ERROR,
     		}))
+
+    	}, 3000)
 
 	}
 }

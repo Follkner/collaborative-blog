@@ -15,16 +15,13 @@ import * as newsActions from '../actions/newsActions';
 class App extends Component {
   	render() {
 
-  		//const { news } = this.props;
-  		console.log(this.props);
-
 	    return (
 		    <Router>
 			    <div className="App">
 			        <Header/>
 			        <Route exact path="/" component={HomePage}/>		         	       			    	         			    	
 				    <div className = "container">
-				        <Route exact path="/news" component={News}/>         			    	         			    	
+				        <Route exact path="/news" component={News} smth = '121'/>         			    	         			    	
 			         	<Route exact path="/news" component={Sidebar}/>  
 				    </div>
 				    <Route exact path="/callback" component={Callback}/>
