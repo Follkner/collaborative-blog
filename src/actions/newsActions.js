@@ -4,23 +4,21 @@ import {
 	NEWS_ERROR
 } from '../constants/News'
 
-export const uploadNews = () => {
+export const uploadNews = (category = '') => {
 	return (dispatch) =>{
 
 		dispatch({
 			type: NEWS_REQUEST,
 		})
 
-		let url = 'https://newsapi.org/v2/everything?' +
-          'q=Apple&' +
-          'from=2019-01-17&' +
-          'sortBy=popularity&' +
+
+		let url = 'https://newsapi.org/v2/top-headlines?' +
+          category +
+          'country=ua&' +
           'apiKey=48376045ee0340699fa633175e51b607';
 
 		let req = new Request(url);
 
-
-		setTimeout(function(){
 		fetch(req)
     		.then(function(response) {
         		return response.json(); 		
@@ -34,8 +32,5 @@ export const uploadNews = () => {
     		.catch(dispatch({
     			type: NEWS_ERROR,
     		}))
-
-    	}, 3000)
-
 	}
 }

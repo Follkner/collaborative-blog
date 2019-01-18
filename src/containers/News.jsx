@@ -7,7 +7,7 @@ import Article from '../components/Article';
 
 class News extends Component {
 
-	componentDidMount(){		
+	componentDidMount(){
 		this.props.newsActions.uploadNews();
 	}
 
@@ -15,14 +15,14 @@ class News extends Component {
   		
   		const { articles, error, isFetching } = this.props.news;
 
-  		const data = articles.map((item, index) =>{
+  		const data = articles? articles.map((item, index) =>{
   			return (<Article 
   						author = {item.author}
   						title = {item.title}
   						description = {item.description}
   						key = {index}
   					/>);
-  		})
+  		}): null
 
     	return (
       		<div className="news">
@@ -34,7 +34,8 @@ class News extends Component {
 
 function mapStateToProps(state){
 	return{
-		news: state.news,
+    news: state.news,
+
 	}
 }
 
