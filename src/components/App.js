@@ -4,13 +4,11 @@ import '../styles/App.css';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import Header from '../components/Header';
-import News from '../components/News';
-import Sidebar from '../components/Sidebar';
-import HomePage from '../components/HomePage';
-import Callback from '../components/Callback';
-
-import * as newsActions from '../actions/newsActions';
+import Header from './Header';
+import News from '../containers/News';
+import Sidebar from './Sidebar';
+import HomePage from './HomePage';
+import Callback from './Callback';
 
 class App extends Component {
   	render() {
@@ -21,7 +19,7 @@ class App extends Component {
 			        <Header/>
 			        <Route exact path="/" component={HomePage}/>		         	       			    	         			    	
 				    <div className = "container">
-				        <Route exact path="/news" component={News} smth = '121'/>         			    	         			    	
+				        <Route exact path="/news" component={News}/>         			    	         			    	
 			         	<Route exact path="/news" component={Sidebar}/>  
 				    </div>
 				    <Route exact path="/callback" component={Callback}/>
@@ -31,16 +29,4 @@ class App extends Component {
   	}
 }
 
-function mapStateToProps(state){
-	return{
-		news: state.news,
-	}
-}
-
-function mapDispatchToProps(dispatch) {
-  	return {
-    	newsActions: bindActionCreators(newsActions, dispatch),
-  	}
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
